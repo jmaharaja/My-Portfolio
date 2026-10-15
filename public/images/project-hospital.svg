@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#070a12"/>
+  <defs>
+    <radialGradient id="glowH" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#070a12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#glowH)"/>
+  <path d="M 100 225 L 250 225 L 300 130 L 350 320 L 400 170 L 450 270 L 500 225 L 700 225" stroke="#00f0ff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="350" cy="320" r="8" fill="#ccff00"/>
+  <text x="400" y="380" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="28" text-anchor="middle" letter-spacing="2">PENGUIN HOSPITAL</text>
+  <text x="400" y="410" fill="#00f0ff" font-family="monospace" font-size="14" text-anchor="middle" letter-spacing="3">AI HEALTHCARE &amp; TRIAGE SYSTEM</text>
+</svg>
