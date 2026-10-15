@@ -113,7 +113,7 @@ Each project includes:
 In `src/data/profile.ts`, under `leadership`:
 - `role`: "Department President"
 - `context`: Student council election
-- `selectionMethod`: Democratically elected with highest vote count
+- `selectionMethod`: Elected Department President
 - `statement`: Leadership philosophy quote
 - `coreResponsibilities` & `values`
 
