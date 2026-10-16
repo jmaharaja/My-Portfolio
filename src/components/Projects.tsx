@@ -128,6 +128,15 @@ export const Projects: React.FC = () => {
                       : 'bg-gradient-to-br from-slate-900 via-dark-900 to-black'
                   }`}
                 >
+                  {/* Background Image if available (e.g., Comic Artwork) */}
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover object-center opacity-35 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 pointer-events-none"
+                    />
+                  )}
+
                   {/* Subtle Grid / Pattern in Banner */}
                   <div className="absolute inset-0 cyber-dots opacity-40 pointer-events-none" />
 
@@ -268,6 +277,17 @@ export const Projects: React.FC = () => {
 
             {/* Modal Body Breakdown */}
             <div className="flex flex-col gap-6 text-sm text-slate-300">
+              {/* Optional Project Featured Image (e.g. The Hunt Comic Artwork) */}
+              {activeModalProject.image && (
+                <div className="w-full max-h-72 rounded-2xl overflow-hidden bg-black/60 border border-white/10 flex items-center justify-center p-2 shadow-xl">
+                  <img
+                    src={activeModalProject.image}
+                    alt={activeModalProject.title}
+                    className="max-h-64 w-auto object-contain rounded-xl shadow-lg"
+                  />
+                </div>
+              )}
+
               {/* Problem & Solution Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 rounded-2xl bg-black/40 border border-red-500/20">

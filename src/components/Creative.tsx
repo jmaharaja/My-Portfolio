@@ -8,7 +8,6 @@ import {
   MessageSquareQuote,
   Maximize2,
   X,
-  ShieldAlert,
 } from 'lucide-react';
 import { PROFILE_DATA } from '../data/profile';
 import { soundFX } from '../utils/audio';
@@ -113,37 +112,38 @@ export const Creative: React.FC = () => {
                   soundFX.playModalOpen();
                   setLightboxOpen(true);
                 }}
-                className="w-full max-w-sm aspect-[3/4] rounded-2xl bg-black/70 border border-purple-500/40 p-6 flex flex-col justify-between relative overflow-hidden group cursor-pointer shadow-[0_0_40px_rgba(168,85,247,0.15)] hover:border-purple-400 hover:scale-[1.02] transition-all"
+                className="w-full max-w-sm aspect-[3/4] rounded-2xl bg-black/70 border border-purple-500/40 p-4 flex flex-col justify-between relative overflow-hidden group cursor-pointer shadow-[0_0_40px_rgba(168,85,247,0.25)] hover:border-purple-400 hover:scale-[1.02] transition-all"
               >
-                {/* Visual Backdrop with Atmospheric Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-purple-950/40 to-transparent" />
-                <div className="absolute inset-0 cyber-dots opacity-40 pointer-events-none" />
+                {/* Visual Backdrop with Real Comic Artwork */}
+                <img
+                  src={creative.theHunt.image || '/images/comic.jpg'}
+                  alt="The Hunt Graphic Novel by Maharaja"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 filter brightness-90 group-hover:brightness-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 cyber-dots opacity-20 pointer-events-none" />
 
                 {/* Top Corner Badge */}
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300 text-[10px] font-mono border border-purple-500/40">
-                    CONCEPT CARD
+                  <span className="px-3 py-1 rounded-full bg-purple-600/80 text-white text-[10px] font-mono font-bold tracking-wider uppercase border border-purple-400/50 backdrop-blur-md shadow-lg">
+                    ORIGINAL COMIC ARTWORK
                   </span>
-                  <Maximize2 className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
+                  <div className="p-2 rounded-full bg-black/60 border border-white/20 text-purple-300 group-hover:text-white group-hover:bg-purple-600/80 transition-all">
+                    <Maximize2 className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  </div>
                 </div>
 
-                {/* Poster Center Symbol */}
-                <div className="relative z-10 flex flex-col items-center text-center my-auto py-8">
-                  <div className="w-16 h-16 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                    <ShieldAlert className="w-8 h-8 text-purple-400" />
-                  </div>
-                  <h4 className="font-display font-black text-3xl tracking-widest text-white uppercase">
+                {/* Poster Footer Note with Glassmorphism */}
+                <div className="relative z-10 p-4 rounded-xl bg-black/80 border border-purple-500/30 backdrop-blur-md">
+                  <h4 className="font-display font-black text-xl tracking-wider text-white uppercase drop-shadow-md">
                     THE HUNT
                   </h4>
-                  <p className="font-mono text-[11px] text-purple-300 tracking-wider mt-1">
-                    AN ORIGINAL COMIC UNIVERSE
+                  <p className="font-mono text-[11px] text-purple-300 tracking-wider">
+                    Written & Visualized by Maharaja
                   </p>
-                </div>
-
-                {/* Poster Footer Note */}
-                <div className="relative z-10 p-3 rounded-xl bg-black/60 border border-white/10 text-center">
-                  <p className="font-mono text-[11px] text-slate-300">
-                    Click to inspect visual concept gallery
+                  <p className="font-mono text-[10px] text-slate-400 mt-1 flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-neon-cyan" />
+                    <span>Click to view full original artwork</span>
                   </p>
                 </div>
               </div>
@@ -176,38 +176,40 @@ export const Creative: React.FC = () => {
 
       {/* Comic / Artwork Lightbox Modal */}
       {lightboxOpen && (
-        <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl animate-in fade-in duration-200">
-          <div className="relative w-full max-w-2xl rounded-3xl glass-panel border border-purple-500/40 p-6 md:p-8">
+        <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl animate-in fade-in duration-200">
+          <div className="relative w-full max-w-3xl max-h-[92vh] flex flex-col rounded-3xl glass-panel border border-purple-500/50 p-6 md:p-8 overflow-y-auto">
             <button
               onClick={() => setLightboxOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full glass-panel text-slate-400 hover:text-white"
+              className="absolute top-5 right-5 p-2 rounded-full glass-panel text-slate-400 hover:text-white hover:border-white/40 transition-all"
+              aria-label="Close image viewer"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="mb-4">
-              <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-mono">
-                Visual Conceptualization
+              <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-mono font-semibold border border-purple-500/40">
+                Original Artwork Showcase
               </span>
-              <h3 className="font-display font-black text-2xl text-white mt-2">
-                The Hunt — Graphic Showcase
+              <h3 className="font-display font-black text-2xl sm:text-3xl text-white mt-2">
+                The Hunt — Graphic Novel Series
               </h3>
-            </div>
-
-            {/* Artwork Placeholder Frame */}
-            <div className="aspect-video w-full rounded-2xl bg-black/80 border border-dashed border-purple-500/40 flex flex-col items-center justify-center p-6 text-center mb-6">
-              <Palette className="w-12 h-12 text-purple-400 mb-3" />
-              <p className="font-display font-bold text-lg text-white mb-1">
-                Visual Art & Title Poster Placeholder
-              </p>
-              <p className="font-mono text-xs text-slate-400 max-w-md">
-                To showcase actual artwork, save image files in <span className="text-purple-300">public/images/</span> and update the references in <span className="text-neon-lime">src/data/profile.ts</span>.
+              <p className="text-xs sm:text-sm text-neon-cyan font-mono mt-1">
+                Visual Concept & Title Artwork by Maharaja
               </p>
             </div>
 
-            <div className="flex items-center justify-between text-xs font-mono text-slate-400">
-              <span>Author: Maharaja</span>
-              <span>Universe: The Hunt Graphic Series</span>
+            {/* High-Resolution Artwork Frame */}
+            <div className="relative w-full rounded-2xl overflow-hidden bg-black/90 border border-purple-500/30 flex items-center justify-center p-2 mb-4 shadow-2xl">
+              <img
+                src={creative.theHunt.image || '/images/comic.jpg'}
+                alt="The Hunt Full Comic Artwork"
+                className="max-h-[60vh] w-auto object-contain rounded-xl shadow-2xl transition-all"
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400 pt-3 border-t border-white/10">
+              <span className="text-slate-300">Creator & Illustrator: <strong className="text-white">Maharaja</strong></span>
+              <span className="text-purple-300 font-semibold">Universe: The Hunt Original Graphic Series</span>
             </div>
           </div>
         </div>

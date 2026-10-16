@@ -69,6 +69,7 @@ export interface CreativeItem {
   elements: string[];
   roles: string[];
   status: string;
+  image?: string;
 }
 
 export interface ProfileData {
@@ -438,7 +439,7 @@ export const PROFILE_DATA: ProfileData = {
       ],
       githubUrl: "https://github.com/jmaharaja",
       liveUrl: undefined,
-      image: "/images/project-comic.svg",
+      image: "/images/comic.jpg",
       isSpecialCreative: true
     }
   ],
@@ -464,7 +465,8 @@ export const PROFILE_DATA: ProfileData = {
         "Visual & Aesthetic Director",
         "Title-Card & Promotional Concept Designer"
       ],
-      status: "In Active Creative Production"
+      status: "In Active Creative Production",
+      image: "/images/comic.jpg"
     },
     creativePillars: [
       {
